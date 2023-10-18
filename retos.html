@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retos de Clases</title>
+</head>
+<body>
+    
+
+    <script>
+class Persona {
+            #nombreCompleto;
+            #documento;
+
+            constructor () {
+                this.#nombreCompleto = '';
+                this.#documento = '';
+
+            }
+
+        set setNombreCompleto(value){
+            this.#nombreCompleto = value;
+        }
+
+        get getNombreCompleto(){
+            return this.#nombreCompleto
+        }
+
+        set setDocumento(value){
+            this.#documento = value;
+
+        }
+
+        get getDocumento(){
+            return this.#documento;
+        }
+
+
+        informacion(){
+            console.log(`Hola me llamo ` + this.getNombreCompleto + 
+            ` y mi documento es ` + this.getDocumento );
+        }
+
+}
+
+class Aprendiz extends Persona{
+            #ficha;
+            #programa;
+
+
+            constructor(){
+                super();
+                this.#ficha = '';
+                this.#programa = '';
+            }
+
+            set setFicha(value){
+                this.#ficha = value;
+            }
+
+            get getFicha(){
+                return this.#ficha;
+            }
+
+            set setPrograma(value){
+                this.#programa = value;
+            }
+
+            get getPrograma(){
+                return this.#programa;
+            }
+
+            matricula(){
+                console.log(`Estoy inscrit@ en la ficha ` + this.getFicha +
+                ` del programa ` + this.getPrograma);
+            }
+        }
+
+        class Instructor extends Persona{
+            #profesion;
+            #salarioBasico;
+
+
+        constructor(){
+            super();
+            this.#profesion = '';
+            this.#salarioBasico = 0;
+        }
+
+        set setProfesion(value){
+            this.#profesion = value;
+        }
+
+        get getProfesion(){
+            return this.#profesion;
+        }
+
+        set setSalarioBasico(value){
+            this.#salarioBasico = value;
+        }
+
+        get getSalarioBasico(){
+            return this.#salarioBasico;
+        }
+
+
+        contrato(){
+            console.log(`Soy ` + this.getProfesion + 
+                        ` y mi salario basico son ` + this.getSalarioBasico + ` millones de pesos`);
+        }
+        }
+
+
+    class EtapaLectiva extends Aprendiz {
+        #numeroTrimestre 
+        #fechaInicio 
+        #fechaTerminacion 
+
+    constructor(){
+        super();
+        this.#numeroTrimestre = '';
+        this.#fechaInicio = '';
+        this.#fechaTerminacion = '';
+    }
+
+        set setNumeroTrimestre(value){
+            this.#numeroTrimestre = value;
+        }
+
+        get getNumeroTrimestre(){
+            return this.#numeroTrimestre;
+        }
+
+        set setFechaInicio(value){
+            this.#fechaInicio = value;
+        }
+
+        get getFechaInicio(){
+            return this.#fechaInicio;
+        }
+
+        set setFechaTerminacion(value){
+            this.#fechaTerminacion = value;
+        }
+
+        get getFechaTerminacion(){
+            return this.#fechaTerminacion;
+        }
+
+    informacioon(){
+        console.log( `Estoy en el trimestre no.`+ this.getNumeroTrimestre +
+                    ` en mi etapa de aprendizaje`);
+    }
+
+    estado(){
+        console.log( `Mi programa de formacion inicio ` + this.getFechaInicio + 
+                 ` y termina ` + this.getFechaTerminacion);
+    }
+    }
+    
+    class EtapaPractica extends Aprendiz {
+        #modalidad
+        #fechaInicio 
+        #fechaTerminacion 
+
+    constructor(){
+        super();
+        this.#modalidad = '';
+        this.#fechaInicio = '';
+        this.#fechaTerminacion = '';
+    }
+
+        set setModalidad(value){
+            this.#modalidad = value;
+        }
+
+        get getModalidad(){
+            return this.#modalidad;
+        }
+
+        set setFechaInicio(value){
+            this.#fechaInicio = value;
+        }
+
+        get getFechaInicio(){
+            return this.#fechaInicio;
+        }
+
+        set setFechaTerminacion(value){
+            this.#fechaTerminacion = value;
+        }
+
+        get getFechaTerminacion(){
+            return this.#fechaTerminacion;
+        }
+
+    iinformacion(){
+        console.log( `Estoy en la modalidad `+ this.getModalidad +
+                    ` de mi etapa electiva`);
+    }
+    estadoo(){
+        console.log( `Mi etapa practica inicio ` + this.getFechaInicio + 
+        ` y termina ` + this.getFechaTerminacion);
+    }
+    
+    } 
+
+    /*La manera en la que podemos mejorar el diagrama de clases es, 
+    Validación de datos de entrada: Puedes agregar validaciones en los 
+    métodos de configuración para asegurarte de que los valores ingresados
+     sean válidos. Por ejemplo, puedes verificar que las fechas estén en un 
+     formato correcto antes de asignarlas a las propiedades.
+
+    Documentación: Proporciona comentarios y documentación adecuada para cada 
+    método y propiedad para que otros programadores puedan entender fácilmente su funcionamiento.
+
+    Utilizar métodos auxiliares: 
+    Si hay operaciones comunes que se repiten en los métodos, 
+    considera crear métodos privados auxiliares para evitar duplicación de código*/
+
+    class InstructorPlanta extends Instructor {
+    #grado;
+    #fechaVinculacion;
+
+    constructor(){
+        super();
+        this.#grado = 0;
+        this.#fechaVinculacion = '';
+    }
+
+    set setGrado(value){
+        if (value >= 1 && value <= 20) {
+            this.#grado = value;
+        } else {
+            console.log("El grado debe ser un número entre 1 y 20");
+        }
+    }
+
+    get getGrado(){
+        return this.#grado;
+    }
+
+    set setFechaVinculacion(value){
+        this.#fechaVinculacion = value;
+    }
+
+    get getFechaVinculacion(){
+        return this.#fechaVinculacion;
+    }
+
+    innformacion(){
+        console.log(`El nivel de mi grado es de ${this.getGrado}`);
+    }
+
+    estado(){
+        console.log(`Mi contrato inició ${this.getFechaVinculacion}`);
+    }
+    
+    sueldo(){
+        const sueldo = this.getGrado * 100000 + this.getSalarioBasico;
+        console.log(`Mi sueldo es de ${sueldo} pesos`);
+    }
+}
+
+
+class InstructorContrato extends Instructor {
+  #duracionContrato;
+  #fechaVinculacion;
+
+  constructor() {
+    super();
+    this.#duracionContrato = 0;
+    this.#fechaVinculacion = new Date();
+  }
+
+   set setDuracionContrato(value) {
+    this.#duracionContrato = value;
+  }
+
+  get getDuracionContrato() {
+    return this.#duracionContrato;
+  }
+
+  set set(value) {
+    this.#fechaVinculacion = new Date(value);
+  }
+
+  get getFechaVinculacion() {
+    return this.#fechaVinculacion;
+  }
+
+  informacion() {
+    console.log(`El día de mi grado es ${this.getGrado}`);
+  }
+
+  estado() {
+    const fechaInicio = this.getFechaVinculacion;
+    const fechaFin = new Date(
+      fechaInicio.getFullYear(),
+      fechaInicio.getMonth() + this.getDuracionContrato,
+      fechaInicio.getDate()
+    );
+    console.log(`Mi contrato inició el ${fechaInicio.toLocaleDateString()}`);
+    console.log(`Mi contrato finaliza el ${fechaFin.toLocaleDateString()}`);
+  }
+
+  sueldo() {
+    const sueldo = this.getDuracionContrato * this.getSalarioBasico;
+    console.log(`Mi sueldo es de ${sueldo} millones de pesos`);
+  }
+}
+
+
+  class Producto {
+    #codigo;
+    #titulo;
+    #autor;
+
+    constructor(){
+        this.#codigo = '';
+        this.#titulo = '';
+        this.#autor = '';
+    }
+
+    set setCodigo (value) {
+        this.#codigo = value;
+    }
+
+    get getCodigo(){
+        return this.#codigo;
+    }
+
+    set setTitulo (value) {
+        this.#titulo = value;
+    }
+
+    get getTitulo(){
+        return this.#titulo;
+    }
+
+    set setAutor(value){
+        this.#autor = value;
+    }
+
+    get getAutor(){
+        return this.#autor;
+    }
+
+    presentacion(){
+        console.log(`Este es un producto con codigo ` + this.getCodigo + 
+        ` y se llama ` + this.getTitulo);
+    }
+
+    productor(){
+        console.log(`Yo soy ` + this.getAutor + `, ¡hice este gran producto!`);
+    }
+
+  }
+
+  class ProductoImpreso extends Producto {
+    #editorial;
+    #año;
+    #precio;
+
+    constructor(){
+        super();
+        this.#editorial = '';
+        this.#año = '';
+        this.#precio = '';
+    }
+
+    set setEditorial(value){
+        this.#editorial = value;
+    }
+
+    get getEditorial(){
+        return this.#editorial;
+    }
+
+    set setAño(value){
+        this.#año = value;
+    }
+
+    get getAño(){
+        return this.#año;
+    }
+
+    set setPrecio(value){
+        this.precio = value;
+    }
+
+    get getPrecio(){
+        return this.#precio;
+    }
+
+
+    nombre(){
+        console.log( `La editorial que lo lanzo se llama ` + this.getEditorial 
+        + ` Y es del año ` + this.getAño);
+    }
+
+    costo(){
+        console.log(`El valor de este porducto es de ` + this.getPrecio + `pesos`);
+    }
+    
+
+  }
+
+  class Revista extends ProductoImpreso {
+    #volumen;
+
+    constructor(){
+        super();
+        this.#volumen = '';
+    }
+
+    set setVolumen(value){
+        this.#volumen = value;
+    }
+
+    get getVolumen(){
+        return this.#volumen;
+    }
+
+    innformacion(){
+        console.log(`Èsta es una revista de Autos y es el ` + 
+        this.getVolumen + ` de esta edicion`);
+    }
+
+    estado(){
+        console.log(`La revista se encuentra en un estado completamente nuevo` );
+    }
+  }
+  
+
+   class ProductoGrabado extends Producto {
+    #tiempoDuracion;
+    #medioTecnologico;
+
+    constructor(){
+        super();
+        this.#tiempoDuracion = 0;
+        this.#medioTecnologico = '';
+    }
+
+    set setTiempoDuracion(value){
+        this.#tiempoDuracion = value;
+    }
+
+    get getTiempoDuracion(){
+        return this.#tiempoDuracion;
+    }
+
+    set setMedioTecnologico(value){
+        this.#medioTecnologico = value;
+    }
+
+    get getMedioTecnologico(){
+        return this.#medioTecnologico;
+    }
+
+    iinformacion(){
+        console.log(`Este ` + this.getMedioTecnologico + ` tiene una vida util de ` + 
+        this.getTiempoDuracion + ` meses`)
+    }
+   }
+   
+   class ProductoSoftware extends Producto {
+    #version;
+    #sistemaOperativo;
+
+    constructor(){
+        super();
+        this.#version = '';
+        this.#sistemaOperativo = 0;
+    }
+
+    set setVersion(value){
+        this.#version = value;
+    }
+
+    get getVersion(){
+        return this.#version;
+    }
+
+    set setSistemaOperativo(value){
+        this.#sistemaOperativo = value;
+    }
+
+    get getSistemaOperativo(){
+        return this.#sistemaOperativo;
+    }
+
+    infformacion(){
+        console.log(`Este Software es para dispositivos moviles y es la ` +
+        `version No. ` + this.getVersion + ` y su nombre es, ` + this.getSistemaOperativo)
+        
+    }
+   }
+
+   console.log()
+   console.log('¡APRENDICES!')
+   console.log()
+
+
+
+   const aprendiz1 = new Aprendiz;
+
+   aprendiz1.setNombreCompleto = 'sandra loaiza';
+   aprendiz1.setDocumento = '1281928912';
+   aprendiz1.setFicha = '2798618';
+   aprendiz1.setPrograma = 'Administracion';
+
+   aprendiz1.informacion();
+   aprendiz1.matricula();
+
+   console.log()
+   console.log('Aprendiz en Etapa Lectiva')
+   console.log()
+
+   const aprendiz2 = new EtapaLectiva;
+
+   aprendiz2.setNombreCompleto = 'Leandro';
+   aprendiz2.setDocumento = '1288383';
+   aprendiz2.setFicha = '2798618';
+   aprendiz2.setPrograma = 'Administracion';
+   aprendiz2.setNumeroTrimestre = '4';
+   aprendiz2.setFechaInicio = '21/08/23';
+   aprendiz2.setFechaTerminacion = '23/06/25';
+
+   aprendiz2.informacion();
+   aprendiz2.matricula();
+   aprendiz2.informacioon();
+   aprendiz2.estado();
+
+   console.log()
+   console.log('Aprendiz Etapa Practica')
+   console.log()
+
+   const aprendiz3 = new EtapaPractica;
+
+   aprendiz3.setNombreCompleto = 'Lalo';
+   aprendiz3.setDocumento = '1288383';
+   aprendiz3.setFicha = '2798618';
+   aprendiz3.setPrograma = 'ADSO';
+   aprendiz3.setModalidad = 'Virtual';
+   aprendiz3.setFechaInicio = '23/03/26'
+   aprendiz3.setFechaTerminacion = '27/09/27'
+
+   aprendiz3.informacion();
+   aprendiz3.matricula();
+   aprendiz3.iinformacion();
+   aprendiz3.estadoo();
+
+   console.log()
+   console.log('¡INSTRUCTORES!')
+   console.log()
+
+  const instructor1 = new Instructor;
+  
+  instructor1.setProfesion = 'Docente';
+  instructor1.setSalarioBasico = 3;
+  instructor1.setNombreCompleto = 'Leonardo'
+  instructor1.setDocumento = '3961878';
+  instructor1.setProfesion = 'Instructor';
+ 
+
+   instructor1.informacion();
+   instructor1.contrato();
+  
+   console.log()
+   console.log('Instructor Planta')
+   console.log()
+
+ const instructor2 = new InstructorPlanta;
+ instructor2.setNombreCompleto = 'Carlos';
+ instructor2.setDocumento = '3672637';
+instructor2.setGrado = 5;
+instructor2.setSalarioBasico = 50000;
+instructor2.setFechaVinculacion = '27/08/2023';
+
+
+instructor2.informacion();
+instructor2.innformacion();
+instructor2.estado();
+instructor2.sueldo();
+
+console.log()
+console.log('Instructor Contrato')
+console.log()
+
+
+const instructor3 = new InstructorContrato;
+instructor2.setNombreCompleto = 'Mailo'
+instructor3.setGrado = 5;
+instructor3.setSalarioBasico = 4;
+instructor3.setFechaVinculacion = '2023-08-27';
+instructor3.setDuracionContrato = 23;
+
+instructor2.informacion();
+instructor3.estado();
+instructor3.sueldo();
+
+console.log()
+console.log('¡PRODUCTOS!')
+console.log()
+
+const producto1 = new Producto;
+producto1.setAutor = 'Fernando';
+producto1.setCodigo = '3421';
+producto1.setTitulo = 'EcoSuculentas'
+
+producto1.productor();
+producto1.presentacion();
+
+console.log()
+console.log('Producto Impreso');
+console.log()
+
+const producto2 = new ProductoImpreso;
+producto2.setAutor = 'Leandro';
+producto2.setCodigo = '3421';
+producto2.setEditorial = 'PLaneta';
+producto2.setAño = '1999';
+producto2.setPrecio = '$10.000';
+
+
+producto2.productor();
+producto2.nombre();
+producto2.costo();
+
+console.log();
+console.log('¡REVISTA!');
+console.log();
+
+const producto3 = new Revista;
+producto3.setVolumen = 'Volumen No.4';
+producto3.estado();
+producto3.innformacion();
+
+console.log();
+console.log('Producto Grbado');
+console.log();
+
+const producto4 = new ProductoGrabado;
+producto4.setMedioTecnologico = 'Celular';
+producto4.setTiempoDuracion = 24;
+
+producto4.iinformacion();
+
+console.log();
+console.log('Producto Software');
+console.log();
+
+const producto5 = new ProductoSoftware;
+producto5.setVersion = 6.1;
+producto5.setSistemaOperativo = 'Fresquito.420';
+
+producto5.infformacion();
+
+
+ 
+
+    </script>
+</body>
+</html>

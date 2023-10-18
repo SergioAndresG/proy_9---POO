@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        class Persona {
+            #nombreCompleto;
+            #edad;
+
+
+            constructor () {
+                this.#nombreCompleto = '';
+                this.#edad = 0;
+
+            }
+
+        set setNombreCompleto(value){
+            this.#nombreCompleto = value;
+        }
+
+        get getNombreCompleto(){
+            return this.#nombreCompleto
+        }
+
+        set serEdad(value){
+            this.#edad = value;
+
+        }
+
+        get getEdad(){
+            return this.#edad;
+        }
+
+
+        saludar(){
+            console.log(`Hola me llamo` + this.getNombreCompleto + 
+            ` y mi edad es` + this.getEdad + ` años`);
+        }
+        }
+
+        class Aprendiz extends Persona{
+            #ficha;
+            #programa;
+
+
+            constructor(){
+                super();
+                this.#ficha = '';
+                this.#programa = '';
+            }
+
+            set setFicha(value){
+                this.#ficha = value;
+            }
+
+            get getFicha(){
+                return this.#ficha;
+            }
+
+            set setPrograma(value){
+                this.#programa = value;
+            }
+
+            get getPrograma(){
+                return this.#programa;
+            }
+
+            matricula(){
+                console.log(`Estoy inscrito en kla ficha ` + this.#ficha +
+                ` del programa ` + this.#programa);
+            }
+        }
+
+        class Instructor extends Persona{
+            #profesion;
+            #tipoVinculacion;
+
+
+        constructor(){
+            super();
+            this.#profesion = '';
+            this.#tipoVinculacion = '';
+        }
+
+        set setProfesion(value){
+            this.#profesion = value;
+        }
+
+        get getProfesion(){
+            return this.#profesion;
+        }
+
+        set setTipoVinculacion(value){
+            this.#tipoVinculacion = value;
+        }
+
+        get getTipoVinculacion(){
+            return this.#tipoVinculacion;
+        }
+
+
+        contrato(){
+            console.log(`Mi profesion es ` + this.getProfesion + 
+                        ` y mi vinculacion es de tipo ` + this.getTipoVinculacion);
+        }
+        }
+
+        class InstructorPlanta extends Instructor{
+            #fechaVinculacion;
+
+            constructor(){
+                super(),
+                this.fechaVinculacion = 0;
+            }
+
+            set setFechaVinculacion(value){
+                this.#fechaVinculacion = value;
+            }
+
+            get getFechaVinculacion(){
+                return this.#fechaVinculacion
+            }
+
+
+        contrato(){
+            console.log(`Mi profesion es ` + this.getProfesion +
+                        ` con vinculacion de tipo ` + this.getTipoVinculacion +
+                        ` desde el año ` + this.getFechaVinculacion);
+        }
+        }
+
+        const aprendiz1 = new Aprendiz;
+
+        aprendiz1.setNombreCompleto = 'julian';
+        aprendiz1.serEdad = 18;
+        aprendiz1.setFicha = '3265326';
+        aprendiz1.setPrograma = 'Analisis y desarrollo de software'
+
+        aprendiz1.saludar();
+        aprendiz1.matricula();
+
+
+        const aprendiz2 = new Aprendiz;
+
+        aprendiz2.setNombreCompleto = 'sandra';
+        aprendiz2.setEdad = 25;
+        aprendiz2.setFicha = '2367236';
+        aprendiz2.setPrograma = 'construccion'
+
+        aprendiz2.saludar();
+        aprendiz2.matricula();
+
+
+        const instructor2 = new InstructorPlanta;
+
+        instructor2.setNombreCompleto = 'carlos toñito';
+        instructor2.setEdad = 35;
+        instructor2.setProfesion = 'INgeniero en Sistemas';
+        instructor2.setTipoVinculacion = 'PLanta';
+        instructor2.setFechaVinculacion = 2019;
+
+        instructor2.saludar();
+        instructor2.contrato();
+        
+
+    </script>
+</body>
+</html>
